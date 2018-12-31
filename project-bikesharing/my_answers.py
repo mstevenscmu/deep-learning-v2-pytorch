@@ -31,6 +31,12 @@ class NeuralNetwork(object):
         #self.activation_function = sigmoid
                     
 
+    # Use this to adjust learning rate for implementing learning rate sweeps
+    # Cyclical Learning Rates for Training Neural Networks
+    # https://arxiv.org/pdf/1506.01186.pdf
+    def set_lr(self, learning_rate):
+        self.lr = learning_rate
+        
     def train(self, features, targets):
         ''' Train the network on batch of features and targets. 
         
@@ -147,7 +153,8 @@ class NeuralNetwork(object):
 #########################################################
 # Set your hyperparameters here
 ##########################################################
-iterations = 2500
+# These parameters were found by randomized grid search
+iterations = 5000
 learning_rate = 0.5
-hidden_nodes = 32
+hidden_nodes = 14
 output_nodes = 1
